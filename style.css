@@ -1,0 +1,107 @@
+body {
+	background-image: url('img/polonez_car.png');
+	font-size: 2.2em;
+	font-family: 'beer money';
+	color: purple;
+	background-color: #383838;
+}
+
+@font-face {
+    font-family: 'beer money'; /* Имя шрифта */
+    src: url('beer money.ttf'); /* Путь к файлу со шрифтом */
+   }
+
+h1 {
+	text-align: center;
+}
+
+li {
+    list-style-type: none;
+	margin: 0.3em auto;
+   }
+
+.list-1 {
+	margin: auto 65% auto 35%;
+	width: 6.25em;
+}
+
+
+a {
+	text-decoration: none;
+	color:inherit;
+}
+
+a:hover {
+	color:red;
+}
+
+li:hover {
+	transform: scale(1.2);
+	color:red;
+	text-shadow: 3px 5px 6px black;
+}
+
+li:hover::after {
+	content: '>>';
+}
+
+@keyframes lada_sedan {
+  from {
+  	transform: translateX(-5em);
+	opacity: 100%;
+}
+  to {
+    transform: translateX(36em);
+    opacity: 100%;
+  }
+}
+
+@keyframes BMW {
+  from {
+  	transform: translateX(-10em) translateY(1em);
+	opacity: 100%;
+} 
+  50%{
+  	transform: translateX(12em);
+  }
+  to {
+    transform: translateX(36em) ;
+    opacity: 100%;
+  }
+}
+
+
+.vaz img, .BMW img  {
+	max-height: 100%; 
+	max-width: 100%;
+	min-height: 15%; 
+	min-width: 15%;
+}
+
+
+
+
+.vaz {
+	display: inline-block;
+	animation-name:lada_sedan;
+	animation-timing-function:linear;
+	animation-duration: 15s;
+	animation-delay: 5s;
+	opacity: 0%;
+}
+
+
+.BMW {
+	display: inline-block;
+	animation-name: BMW;
+	animation-timing-function: linear;
+	animation-delay: 10s;
+	animation-duration: 3s;
+	opacity: 0%;
+}
+
+
+.passed {
+	color:gray;
+	text-decoration: line-through;
+}

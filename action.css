@@ -1,0 +1,140 @@
+body {
+	background-image: url('img/polonez_car.png');
+	color: purple;
+	font-size: 1.563em;
+}
+
+
+.menu {
+  white-space: nowrap;
+}
+
+.Mode {
+  font-size: 2em;
+  margin-left: 1em;
+}
+
+article {
+  width: 80%;
+  height: 80%;
+  margin: 0 auto 0 30%;
+  
+}
+
+.clearFix {
+  clear: both;
+}
+
+img {
+  max-width: 40%;
+  max-height: 40%;
+  border-radius: 1em;
+  min-height: 275px;
+  min-width: 435px;
+}
+
+span {
+  margin-left: 0.9em;
+}
+
+span:hover {
+  color: blue;
+  transform: translateY(0.1em);
+}
+
+.numberOfTask {
+  text-align: left;
+}
+
+.textOfTask {
+  font-size: 0.8em;
+  width: 28em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: red;
+}
+
+label:hover {
+  color: green;
+}
+
+li {
+    list-style-type: none;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  color: purple;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: rgba(255,255,255,.5) 1px 1px, rgba(100,100,100,.3) 3px 7px 3px;
+  user-select: none;
+  padding: 1em 2em;
+  outline: none;
+  border-radius: 3px / 100%;
+  background-image:
+   linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%),
+   linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0) 20%, rgba(255,255,255,0) 90%, rgba(255,255,255,.3)),
+   linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)),
+   linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)),
+   linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5)),
+   linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5));
+  background-repeat: no-repeat;
+  background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
+  background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+  box-shadow: rgba(0,0,0,.5) 3px 10px 10px -10px;
+}
+.button:hover {
+  transition: .5s linear;
+  background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+}
+.button:active {
+  top: 1px;
+}
+
+.help_used, .help_used:hover, .false_variant_hepler, .false_variant_hepler:hover {
+	color:gray;
+	text-decoration: line-through;
+}
+
+.variant {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  outline: none;
+  margin-right: 5px;
+
+  position: relative;
+  top: 4px;
+}
+
+.variant:checked {
+  border: 6px solid green;
+}
+
+
+@media (max-width: 660px){
+  article {
+    margin:0 auto;
+  }
+
+  .Mode {
+    margin: 0;
+    text-align: center;
+  }
+
+}
