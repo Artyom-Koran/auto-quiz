@@ -45,61 +45,6 @@ li:hover::after {
 	content: '>>';
 }
 
-@keyframes lada_sedan {
-  from {
-  	transform: translateX(-5em);
-	opacity: 100%;
-}
-  to {
-    transform: translateX(36em);
-    opacity: 100%;
-  }
-}
-
-@keyframes BMW {
-  from {
-  	transform: translateX(-10em) translateY(1em);
-	opacity: 100%;
-} 
-  50%{
-  	transform: translateX(12em);
-  }
-  to {
-    transform: translateX(36em) ;
-    opacity: 100%;
-  }
-}
-
-
-.vaz img, .BMW img  {
-	max-height: 100%; 
-	max-width: 100%;
-	min-height: 15%; 
-	min-width: 15%;
-}
-
-
-
-
-.vaz {
-	display: inline-block;
-	animation-name:lada_sedan;
-	animation-timing-function:linear;
-	animation-duration: 15s;
-	animation-delay: 5s;
-	opacity: 0%;
-}
-
-
-.BMW {
-	display: inline-block;
-	animation-name: BMW;
-	animation-timing-function: linear;
-	animation-delay: 10s;
-	animation-duration: 3s;
-	opacity: 0%;
-}
-
 
 .passed {
 	color:gray;

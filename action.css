@@ -4,21 +4,28 @@ body {
 	font-size: 1.563em;
 }
 
-
-.menu {
-  white-space: nowrap;
-}
-
 .Mode {
+	float: left;
+	display: block;
   font-size: 2em;
   margin-left: 1em;
 }
+
+.menu {
+
+	float: right;
+	display: block;
+  white-space: nowrap;
+	text-align: right;
+	margin-right: 1em;
+}
+
+
 
 article {
   width: 80%;
   height: 80%;
   margin: 0 auto 0 30%;
-  
 }
 
 .clearFix {
@@ -33,14 +40,6 @@ img {
   min-width: 435px;
 }
 
-span {
-  margin-left: 0.9em;
-}
-
-span:hover {
-  color: blue;
-  transform: translateY(0.1em);
-}
 
 .numberOfTask {
   text-align: left;
@@ -51,12 +50,12 @@ span:hover {
   width: 28em;
 }
 
-a {
+a{
   text-decoration: none;
   color: inherit;
 }
 
-a:hover {
+a:hover, span:hover {
   color: red;
 }
 
@@ -97,11 +96,6 @@ li {
 }
 .button:active {
   top: 1px;
-}
-
-.help_used, .help_used:hover, .false_variant_hepler, .false_variant_hepler:hover {
-	color:gray;
-	text-decoration: line-through;
 }
 
 .variant {

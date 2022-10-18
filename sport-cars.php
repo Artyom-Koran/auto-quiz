@@ -11,8 +11,8 @@
 	<?php
 	session_start();
 
-	class cards
-	{
+
+	class cards {
 	    // объявление свойств
 			public $number;
 			public $image;
@@ -39,7 +39,7 @@
 	}
 	// Создание новых объектов(карточек)
 	$taskCard_1 = new cards("1/10","img/sport/dodgeV.jpg","Производится в США", "GMC", "Mazda RX-7", "Dodge Viper", "0", "0", "1");
-	$taskCard_2 = new cards("2/10","img/sport/subaru_BRZ.jpg","Производится ____", "Toyota Supra A90", "Subaru BRZ", "Alpine A110", "0", "1", "0");
+	$taskCard_2 = new cards("2/10","img/sport/subaru_BRZ.jpg","Производится в Японии", "Toyota Supra A90", "Subaru BRZ", "Alpine A110", "0", "1", "0");
 	$taskCard_3 = new cards("3/10", "img/sport/Acura_NSX.jpg", "Производится в Японии", "McLaren 570S", "Acura NSX", "Honda NSX II", "0", "1", "0");
 	$taskCard_4 = new cards("4/10", "img/sport/Lamborghini_Murcielago.jpg", "Пришёл на смену Lamborghini Diablo", "Lamborghini Gallardo", "Lamborghini Murcielago", "Lamborghini Reventon", "0", "1", "0");
 	$taskCard_5 = new cards("5/10", "img/sport/McLaren_F1.jpg", " Серийная модель гиперкара британской фирмы, с 1998 по 2005 года считался самым быстрым в мире", "Ferrari 550", "Saleen S7", "McLaren F1", "0", "0", "1");
@@ -63,38 +63,53 @@
 			"10" => $taskCard_10
 	);
 
+	// Условия для загрузки первой карточки
+	 if($_SESSION['correct'] == 0){
+			$_SESSION['correct'] = 1;
+			$_SESSION['button_hide_con'] = "hidden";
+	    $_SESSION['button_class_ans'] = "button";
+	 }
+
 
 	// Текущий объект
 	$tCard_now = $cards_ar[$_SESSION['correct']];
 
-//	var_dump($_SESSION['correct']);
-//	var_dump($_SESSION['send_variant']);
+	// Отдельная переменная для замены текста при правильном ответе
+	$text_area = $tCard_now->text;
+
+	// Если ответ правильный, то заменяется текст в карточке
+	if($_SESSION["right"] == 1){
+		$text_area = "Правильно!";
+		$_SESSION["right"] = 0;
+	}
 
 ?>
 	<div class="Mode">
     	<b>Спортивные авто</b>
 	</div>
 
-<article>
 	<div class='menu'>
-		<a href="index.php">Сдаюсь</a>
-		<span class="help help_1">Страхование ответа</span>
-		<span class="help help_2">Убрать вариант</span>
+		<a href="index.php">Главная</a>
+		<span class ='reboot'>Начать заново</span>
 	</div>
+<div class="clearFix"></div>
+<article>
 
   <div class='task'>
-		<p class='numberOfTask' id='p1'></p>
-		<img class="image" id="image" src="<?= $tCard_now->image;  ?>">
+		<p class='numberOfTask' id='p1'><?= $tCard_now->number; ?></p>
+		<img class="image" id="image" src="<?= $tCard_now->image; ?>">
   </div>
 
   <div class='variants'>
 	 <form class="form1" action="action.php" method="POST" name="radioForm" id="radioForm">
-		<p class="textOfTask"><?= $tCard_now->text?></p>
+		<p class="textOfTask"><?= $text_area ?></p>
 		 <input type="radio" class="variant" name='variant' id='radio1' value='<?= $tCard_now->radioV_1; ?>'> <label for='radio1' class='label_1'><?= $tCard_now->answer_1 ?></label><br>
 		 <input type="radio" class="variant" name='variant' id='radio2' value='<?= $tCard_now->radioV_2; ?>'> <label for='radio2' class='label_2'><?= $tCard_now->answer_2 ?> </label> <br>
 		 <input type="radio" class="variant" name='variant' id='radio3' value='<?= $tCard_now->radioV_3; ?>'> <label for='radio3' class='label_3'><?= $tCard_now->answer_3 ?> </label> <br>
 
-<input type="submit" value="Ответить" class='button'>
+
+		<input type="submit" value="Ответить"  <?= $_SESSION['button_hide_ans']; ?> class='<?= $_SESSION['button_class_ans']; ?>' >
+		<input type="submit" name="go" value="Продолжить"  <?= $_SESSION['button_hide_con']; ?> class=<?= $_SESSION['button_class_con'] ?> >
 
 		</form>
 		</ul>
