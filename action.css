@@ -4,19 +4,25 @@ body {
 	font-size: 1.563em;
 }
 
-.Mode {
+.mode {
 	float: left;
 	display: block;
   font-size: 2em;
   margin-left: 1em;
 }
 
-.menu {
-
+.main {
 	float: right;
 	display: block;
   white-space: nowrap;
 	text-align: right;
+	margin-right: 1em;
+}
+
+.reButton {
+	float: right;
+	display: block;
+	margin-left: 1em;
 	margin-right: 1em;
 }
 
@@ -49,6 +55,28 @@ img {
   font-size: 0.8em;
   width: 28em;
 }
+
+h2 {
+	float:left;
+	display: block;
+	margin:  1em 4em auto;
+	font-size: 4em;
+	text-align: center;
+}
+
+#reButton{
+border:none;
+padding:0;
+margin:0;
+font-size:25px;
+color:purple;
+background-color:transparent;
+}
+
+#reButton:hover{
+	color:red;
+}
+
 
 a{
   text-decoration: none;
@@ -121,14 +149,13 @@ li {
 }
 
 
-@media (max-width: 660px){
-  article {
-    margin:0 auto;
-  }
 
-  .Mode {
-    margin: 0;
-    text-align: center;
-  }
-
+.true[value="1"]  + label{
+	color: green;
 }
+
+/*
+.false[value="0"] + label{
+	color: red;
+}
+*/

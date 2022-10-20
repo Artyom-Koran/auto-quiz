@@ -64,15 +64,15 @@
 	);
 
 	// Условия для загрузки первой карточки
-	 if($_SESSION['correct'] == 0){
-			$_SESSION['correct'] = 1;
+	 if($_SESSION['change'] == 0){
+			$_SESSION['change'] = 1;
 			$_SESSION['button_hide_con'] = "hidden";
 	    $_SESSION['button_class_ans'] = "button";
 	 }
 
 
 	// Текущий объект
-	$tCard_now = $cards_ar[$_SESSION['correct']];
+	$tCard_now = $cards_ar[$_SESSION['change']];
 
 	// Отдельная переменная для замены текста при правильном ответе
 	$text_area = $tCard_now->text;
@@ -81,19 +81,35 @@
 	if($_SESSION["right"] == 1){
 		$text_area = "Правильно!";
 		$_SESSION["right"] = 0;
+	}	elseif($_SESSION["right"] === false){
+		$text_area = "Неправильно!";
+
 	}
 
+
 ?>
-	<div class="Mode">
+	<div class="mode">
     	<b>Спортивные авто</b>
 	</div>
 
-	<div class='menu'>
+	<div class='main'>
 		<a href="index.php">Главная</a>
-		<span class ='reboot'>Начать заново</span>
 	</div>
+
+	<div class="reButton">
+		<form action="action.php" method="POST">
+			<input class="reButton" type="submit" name="reButton" id="reButton" value="Начать заново">
+		</form>
+	</div>
+
 <div class="clearFix"></div>
-<article>
+			<?php
+				// Финал, резултаты
+				if($_SESSION['hidden'] == "hidden"){
+					echo "<H2>" . "Результат:" . $_SESSION['correct_count'] . "/10" . "</H2>";
+				}
+			?>
+<article <?= $_SESSION["hidden"]; ?>>
 
   <div class='task'>
 		<p class='numberOfTask' id='p1'><?= $tCard_now->number; ?></p>
@@ -103,13 +119,12 @@
   <div class='variants'>
 	 <form class="form1" action="action.php" method="POST" name="radioForm" id="radioForm">
 		<p class="textOfTask"><?= $text_area ?></p>
-		 <input type="radio" class="variant" name='variant' id='radio1' value='<?= $tCard_now->radioV_1; ?>'> <label for='radio1' class='label_1'><?= $tCard_now->answer_1 ?></label><br>
-		 <input type="radio" class="variant" name='variant' id='radio2' value='<?= $tCard_now->radioV_2; ?>'> <label for='radio2' class='label_2'><?= $tCard_now->answer_2 ?> </label> <br>
-		 <input type="radio" class="variant" name='variant' id='radio3' value='<?= $tCard_now->radioV_3; ?>'> <label for='radio3' class='label_3'><?= $tCard_now->answer_3 ?> </label> <br>
+		 <input type="radio" checked <?= $_SESSION['disabled'] ?> class="variant <?= $_SESSION['green_light']; ?>" name='variant' id='radio1' value='<?= $tCard_now->radioV_1; ?>'> <label for='radio1' class='label_1'><?= $tCard_now->answer_1 ?></label><br>
+		 <input type="radio" <?= $_SESSION['disabled'] ?> class="variant <?= $_SESSION['green_light']; ?>" name='variant' id='radio2' value='<?= $tCard_now->radioV_2; ?>'> <label for='radio2' class='label_2'><?= $tCard_now->answer_2 ?> </label> <br>
+		 <input type="radio" <?= $_SESSION['disabled'] ?> class="variant <?= $_SESSION['green_light'];?>" name='variant' id='radio3' value='<?= $tCard_now->radioV_3; ?>'> <label for='radio3' class='label_3'><?= $tCard_now->answer_3 ?> </label> <br>
 
-
-		<input type="submit" value="Ответить"  <?= $_SESSION['button_hide_ans']; ?> class='<?= $_SESSION['button_class_ans']; ?>' >
-		<input type="submit" name="go" value="Продолжить"  <?= $_SESSION['button_hide_con']; ?> class=<?= $_SESSION['button_class_con'] ?> >
+		 <input type="submit" value="Ответить"  <?= $_SESSION['button_hide_ans']; ?> class='<?= $_SESSION['button_class_ans']; ?>' >
+		 <input type="submit" name="go" value="Продолжить"  <?= $_SESSION['button_hide_con']; ?> class=<?= $_SESSION['button_class_con'] ?> >
 
 		</form>
 		</ul>
