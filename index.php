@@ -12,12 +12,14 @@
 <header><h1>Выбрать режим авто-викторины:</h1></header>
 <ul class="list-1">
  <li class="list_element_1"><a href="sport-cars.php">Спортивные авто</a></li>
- <li class="list_element_2"><a href="">Классические авто</a></li>
- <li class="list_element_3"><a href="">Внедорожники</a></li>
+ <li class="list_element_2"><a href="classic-cars.php">Классические авто</a></li>
+ <li class="list_element_3"><a href="">Седаны(в разработке)</a></li>
 </ul>
 
 <?php
-
+// Костыль для удаления результатов между режимами
+session_start();
+session_destroy();
 
  ?>
 
