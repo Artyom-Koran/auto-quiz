@@ -9,11 +9,12 @@
 
 </head>
 <body>
-<header><h1>Выбрать режим авто-викторины:</h1></header>
+<header><h1>Авто-викторина</h1></header>
+<h2>Выбрать режим:</h2>
 <ul class="list-1">
  <li class="list_element_1"><a href="sport-cars.php">Спортивные авто</a></li>
  <li class="list_element_2"><a href="classic-cars.php">Классические авто</a></li>
- <li class="list_element_3"><a href="">Седаны(в разработке)</a></li>
+ <li class="list_element_3"><a href="sedans.php">Современные Седаны</a></li>
 </ul>
 
 <?php
