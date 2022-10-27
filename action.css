@@ -31,7 +31,7 @@ body {
 article {
   width: 80%;
   height: 80%;
-  margin: 0 auto 0 30%;
+  margin: 0 0 0 30%;
 }
 
 .clearFix {
@@ -56,13 +56,14 @@ img {
   width: 28em;
 }
 
+
 h2 {
-	float:left;
-	display: block;
-	margin:  1em 4em auto;
 	font-size: 4em;
 	text-align: center;
 }
+
+
+
 
 #reButton{
 border:none;
@@ -153,6 +154,11 @@ li {
 .true[value="1"]  + label{
 	color: green;
 }
+
+/*
+.true:checked + label {
+	color:red;
+} */
 
 /*
 .false[value="0"] + label{

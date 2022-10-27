@@ -118,7 +118,7 @@
   <div class='variants'>
 	 <form class="form1" action="action.php" method="POST" name="radioForm" id="radioForm">
 		<p class="textOfTask"><?= $text_area ?></p>
-		 <input type="radio" checked <?= $_SESSION['disabled'] ?> class="variant <?= $_SESSION['green_light']; ?>" name='variant' id='radio1' value='<?= $tCard_now->radioV_1; ?>'> <label for='radio1' class='label_1'><?= $tCard_now->answer_1 ?></label><br>
+		 <input type="radio" required checked <?= $_SESSION['disabled'] ?> class="variant <?= $_SESSION['green_light']; ?>" name='variant' id='radio1' value='<?= $tCard_now->radioV_1; ?>'> <label for='radio1' class='label_1'><?= $tCard_now->answer_1 ?></label><br>
 		 <input type="radio" <?= $_SESSION['disabled'] ?> class="variant <?= $_SESSION['green_light']; ?>" name='variant' id='radio2' value='<?= $tCard_now->radioV_2; ?>'> <label for='radio2' class='label_2'><?= $tCard_now->answer_2 ?> </label> <br>
 		 <input type="radio" <?= $_SESSION['disabled'] ?> class="variant <?= $_SESSION['green_light'];?>" name='variant' id='radio3' value='<?= $tCard_now->radioV_3; ?>'> <label for='radio3' class='label_3'><?= $tCard_now->answer_3 ?> </label> <br>
 
