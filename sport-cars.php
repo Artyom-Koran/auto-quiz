@@ -91,7 +91,7 @@
 	</div>
 
 	<div class='main'>
-		<a href="index.html">Главная</a>
+		<a href="index.php">Главная</a>
 	</div>
 
 	<div class="reButton">
