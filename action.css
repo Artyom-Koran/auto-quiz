@@ -1,3 +1,4 @@
+
 body {
 	background-image: url('img/polonez_car.png');
 	color: purple;
@@ -29,9 +30,11 @@ body {
 
 
 article {
+	position: fixed;
+	left: 30%;
   width: 80%;
   height: 80%;
-  margin: 0 0 0 30%;
+
 }
 
 .clearFix {
@@ -53,7 +56,7 @@ img {
 
 .textOfTask {
   font-size: 0.8em;
-  width: 28em;
+  max-width: 28em;
 }
 
 
@@ -155,13 +158,7 @@ li {
 	color: green;
 }
 
-/*
-.true:checked + label {
-	color:red;
-} */
-
-/*
-.false[value="0"] + label{
-	color: red;
+@media (max-width: 768px) {
+	article {
+		margin:0 auto;
 }
-*/

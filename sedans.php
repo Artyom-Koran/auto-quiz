@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" shrink-to-fit=no>
 	<title>Седаны</title>
 	<link rel="stylesheet" href="action.css">
-
 </head>
 <body>
 	<?php
@@ -131,10 +130,6 @@
 </article>
 
 <div class="clearFix"></div>
-
-<?php
-
-?>
 
 </body>
 </html>
