@@ -87,21 +87,21 @@
 
 
 ?>
-	<div class="mode">
-    	<b>Классические авто</b>
-	</div>
 
+<div id="flex-container">
 	<div class='main'>
 		<a href="index.php">Главная</a>
 	</div>
-
+	<div class="mode">
+		<b>Классические авто</b>
+	</div>
 	<div class="reButton">
 		<form action="action.php" method="POST">
 			<input class="reButton" type="submit" name="reButton" id="reButton" value="Начать заново">
 		</form>
 	</div>
+</div>
 
-<div class="clearFix"></div>
 			<?php
 				// Финал, резултаты
 				if($_SESSION['hidden'] == "hidden"){
