@@ -206,3 +206,9 @@ li {
 	  color: #9f15c2;
 	}
 }
+
+	@media (max-width: 550px){
+		.variants, .task {
+			margin: auto;
+		}
+}
