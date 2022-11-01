@@ -12,6 +12,7 @@ body {
 .main {
   white-space: nowrap;
 	margin-right: 1em;
+	padding-left: 1em;
 }
 
 .reButton {
@@ -22,7 +23,7 @@ body {
 #flex-container {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: nowrap;
+	flex-wrap: wrap;
 	margin-left: 1em;
 	margin-bottom: 1em;
 	justify-content: center;
@@ -38,12 +39,18 @@ article {
   clear: both;
 }
 
+
+
+
 img {
-  max-width: 50%;
-  max-height: 50%;
-  min-height: 275px;
-  min-width: 435px;
+	width: 100%;
+	height: auto;
+	min-width: 379px;
+	min-height: 284px;
+	max-width: 512px;
+	max-height: 384px;
 	border-radius: 1em;
+
 }
 
 
@@ -161,9 +168,41 @@ li {
 	color: green;
 }
 
-/*
-@media (max-width: 768px) {
-	article {
+
+
+@media (max-width: 1280px) {
+	.variants, .task {
+		padding-left: 0%;
+		margin: 0 25%;
+	}
+}
+
+@media (max-width: 1024px) {
+	.mode {
+	  font-size: 1.5em;
+	}
 
 }
-*/
+
+@media (max-width: 768px){
+	.variants, .task {
+		padding-left: 0%;
+	}
+
+	#flex-container{
+		flex-direction:column;
+		text-align: center;
+	}
+
+	.main, .reButton {
+		font-weight: bold;
+		padding-left: 1em;
+	}
+	.main{
+	margin-right: 1em;
+	padding-left: 1em;
+	}
+	.mode {
+	  color: #9f15c2;
+	}
+}
