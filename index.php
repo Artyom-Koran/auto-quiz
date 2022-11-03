@@ -22,6 +22,9 @@ session_destroy();
 
  ?>
 
-
+<address>
+Контакты: ar3yom96@mail.ru <br>
+<a href="http://github.com/Artyom-Koran">GitHub</a>
+</address>
 </body>
 </html>

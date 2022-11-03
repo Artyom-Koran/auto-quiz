@@ -4,7 +4,6 @@ body {
 	color: purple;
 	font-size: 1.563em;
 }
-
 .mode {
   font-size: 2em;
 }
@@ -205,6 +204,10 @@ li {
 	.mode {
 	  color: #9f15c2;
 	}
+	h2 {
+		font-size: 2em;
+	}
+
 }
 
 	@media (max-width: 550px){

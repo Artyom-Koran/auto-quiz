@@ -102,7 +102,7 @@
 			<?php
 				// Финал, резултаты
 				if($_SESSION['hidden'] == "hidden"){
-					echo "<H2>" . "Результат:" . $_SESSION['correct_count'] . "/10" . "</H2>";
+					echo "<H2>" . "Результат: " . $_SESSION['correct_count'] . "/10" . "</H2>";
 				}
 			?>
 <article <?= $_SESSION["hidden"]; ?>>
