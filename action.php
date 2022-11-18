@@ -72,17 +72,38 @@
   }
 
 
-  // Завершение
-if($_SESSION['change'] == 11){
-  $_SESSION['hidden'] = "hidden";
+  // Завершение. Вместо карточки показывает результат
+  if($_SESSION['change'] == 11){
+    $_SESSION['hidden'] = "hidden";
+  }
+
+//   Кусок кода для записи результата. Нужно как-то получить доступ к этому коду, но не при перезагрузке
+    // Подключение к БД
+    if($_SESSION['call_db'] == 1){
+    require("db_conn.php");
+    // Запись результата в БД
+    $countForBD = $_SESSION['correct_count'];
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $mode = $_SERVER['mode'];
+    $sql = "INSERT INTO results SET mode = '$mode' ,result = '$countForBD', ip = '$ip' ";
+    $result = mysqli_query($link, $sql);
+    // Костыль
+    $_SESSION["data_control"] = 1;
+
+    // Проверка
+    if ($result == false) {
+        print("Произошла ошибка при сохранении резльтата");
+    }
 }
-
-
 
   // Нажатие на кнопку "Начать заново"
   if(isset($_SESSION['reButton'])){
     session_destroy();
   }
+
+
+
+
 
 // Решение из форума для возврата на предыдущую страницу
   echo "
@@ -91,6 +112,5 @@ if($_SESSION['change'] == 11){
      <meta http-equiv='Refresh' content='0; URL=".$_SERVER['HTTP_REFERER']."'>
     </head>
   </html>";
-
 
 ?>

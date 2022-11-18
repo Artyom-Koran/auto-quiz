@@ -10,6 +10,8 @@
 <body>
 	<?php
 	session_start();
+	$_SERVER["mode"] = "classic";
+
 
 	class cards {
 	    // объявление свойств
@@ -106,18 +108,16 @@
 				// Финал, резултаты
 				if($_SESSION['hidden'] == "hidden"){
 					echo "<H2>" . "Результат: " . $_SESSION['correct_count'] . "/10" . "</H2>";
-					// Подключение к БД
-					require("db_conn.php");
-					// Запись результата в БД
-					$countForBD = $_SESSION['correct_count'];
-					$ip = $_SERVER['REMOTE_ADDR'];
-					$sql = "INSERT INTO results SET mode = 'classic' ,result = '$countForBD', ip = '$ip' ";
-					$result = mysqli_query($link, $sql);
-
-					if ($result == false) {
-							print("Произошла ошибка при выполнении запроса");
-					}
+					$_SESSION['call_db'] = 1;
 				}
+
+				// Запись в БД после прохождения режима
+				if($_SESSION['call_db'] == 1 && $_SESSION["data_control"] != 1){
+					require('action.php');
+					$_SESSION['call_db'] = 0;
+				}
+
+
 			?>
 <article <?= $_SESSION["hidden"]; ?>>
 
@@ -143,9 +143,7 @@
 
 <div class="clearFix"></div>
 
-<?php
 
-?>
 
 </body>
 </html>
