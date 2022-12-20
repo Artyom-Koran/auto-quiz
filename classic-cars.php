@@ -10,7 +10,7 @@
 <body>
 	<?php
 	session_start();
-	$_SERVER["mode"] = "classic";
+	$_SESSION["mode"] = "classic";
 
 
 	class cards {
@@ -117,6 +117,10 @@
 					$_SESSION['call_db'] = 0;
 				}
 
+				// Если есть предыдущий результат
+				if($_SESSION['pre_result'] == true){
+					echo "<H3>" . "Предыдущий результат: " . $_SESSION['pre_result']  . "</H3>";
+				}
 
 			?>
 <article <?= $_SESSION["hidden"]; ?>>

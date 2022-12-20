@@ -33,7 +33,8 @@
 
 
   $_SESSION['hidden'];
-  $_SESSIONP['finish'];
+  $_SESSION['finish'];
+  $_SESSION['pre_result'];
 
 
 // Переключение карточек, сначала меняется кнопка с "Ответить" на "Продолжить"
@@ -77,24 +78,62 @@
     $_SESSION['hidden'] = "hidden";
   }
 
-//   Кусок кода для записи результата. Нужно как-то получить доступ к этому коду, но не при перезагрузке
-    // Подключение к БД
-    if($_SESSION['call_db'] == 1){
-    require("db_conn.php");
-    // Запись результата в БД
-    $countForBD = $_SESSION['correct_count'];
-    $ip = $_SERVER['REMOTE_ADDR'];
-    $mode = $_SERVER['mode'];
-    $sql = "INSERT INTO results SET mode = '$mode' ,result = '$countForBD', ip = '$ip' ";
-    $result = mysqli_query($link, $sql);
-    // Костыль
-    $_SESSION["data_control"] = 1;
 
-    // Проверка
-    if ($result == false) {
-        print("Произошла ошибка при сохранении резльтата");
-    }
+    // Подключение к БД для записи результата
+    if($_SESSION['call_db'] == 1){
+      require("db_conn.php");
+      // Переменные содержат данные для запросов к mysql
+      $countForBD = $_SESSION['correct_count'];
+      $ip = $_SERVER['REMOTE_ADDR'];
+      $mode = $_SESSION['mode'];
+
+
+      // Проверка существования записей для текущего IP, в текущем режиме
+      $sql = "SELECT * FROM results WHERE ip = '$ip' AND mode = '$mode' ";
+      $result = mysqli_query($link, $sql);
+      $rows = mysqli_fetch_assoc($result);
+
+      if($rows == true){
+        // Отображение результата
+        $sql = "SELECT result FROM results WHERE ip = '$ip' AND mode = '$mode' ";
+        $result = mysqli_query($link, $sql);
+        $rows = mysqli_fetch_assoc($result);
+
+        $_SESSION['pre_result'] = $rows['result'] ;
+
+        // Обновление результата
+        $sql = "UPDATE results SET result = '$countForBD' WHERE ip = '$ip' AND mode = '$mode' ";
+        $result = mysqli_query($link, $sql);
+      } else {
+          // Запись первого результата в БД
+          $sql = "INSERT INTO results SET mode = '$mode' ,result = '$countForBD', ip = '$ip' ";
+          $result = mysqli_query($link, $sql);
+      //    $_SESSION['pre_result'] = 0;
+      }
+
+
+      // Костыль, прерывает запрос сюда, потом можно убрать
+      // Не работает если нажать на НАЧАТЬ ЗАНОВО
+      $_SESSION["data_control"] = 1;
+
+      // Проверка
+      if ($result == false) {
+          print("Произошла ошибка при обращении к базе данных");
+      }
 }
+
+    /* все записи сразу
+      $sql = 'SELECT id, ip, mode, result FROM results';
+      $result = mysqli_query($link, $sql);
+      $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+      foreach ($rows as $row) {
+        print("IP-адрес: " . $row['ip'] . "; ID-номер: . " . $row['id'] . " Режим: " . $row['mode'] . " Результат: " . $row['result'] . "<br>");
+      }  */
+
+
+
+
 
   // Нажатие на кнопку "Начать заново"
   if(isset($_SESSION['reButton'])){

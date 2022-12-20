@@ -10,7 +10,7 @@
 <body>
 	<?php
 	session_start();
-	$_SERVER["mode"] = "sport";
+	$_SESSION["mode"] = "sport";
 
 	class cards {
 	    // объявление свойств
@@ -113,6 +113,12 @@
 					require('action.php');
 					$_SESSION['call_db'] = 0;
 				}
+
+				// Если есть предыдущий результат
+				if($_SESSION['pre_result'] == true){
+					echo "<H3>" . "Предыдущий результат: " . $_SESSION['pre_result']  . "</H3>";
+				}
+
 			?>
 <article <?= $_SESSION["hidden"]; ?>>
 
