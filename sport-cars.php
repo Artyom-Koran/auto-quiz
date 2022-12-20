@@ -9,10 +9,10 @@
 </head>
 <body>
 	<?php
-	session_start();
-	$_SESSION["mode"] = "sport";
+		session_start();
+		$_SESSION["mode"] = "sport";
 
-	class cards {
+		class cards {
 	    // объявление свойств
 			public $number;
 			public $image;
